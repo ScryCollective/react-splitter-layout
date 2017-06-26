@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import Pane from './Pane';
 import '../stylesheets/index.css';
 
@@ -17,7 +16,30 @@ function clearSelection() {
 
 const DEFAULT_SPLITTER_SIZE = 4;
 
-class SplitterLayout extends React.Component {
+class SplitterLayout extends Component {
+
+  props: {
+    customClassName: string,
+    vertical: bool,
+    percentage: bool,
+    primaryIndex: number,
+    primaryMinSize: number,
+    secondaryInitialSize: number,
+    secondaryMinSize: number,
+    onSecondarySizeChange: (number) => void
+  }
+
+  static defaultProps = {
+    customClassName: '',
+    vertical: false,
+    percentage: false,
+    primaryIndex: 0,
+    primaryMinSize: 0,
+    secondaryInitialSize: undefined,
+    secondaryMinSize: 0,
+    onSecondarySizeChange: undefined
+  }
+
   constructor(props) {
     super(props);
     this.handleResize = this.handleResize.bind(this);
@@ -193,29 +215,5 @@ class SplitterLayout extends React.Component {
     );
   }
 }
-
-SplitterLayout.propTypes = {
-  customClassName: PropTypes.string,
-  vertical: PropTypes.bool,
-  percentage: PropTypes.bool,
-  primaryIndex: PropTypes.number,
-  primaryMinSize: PropTypes.number,
-  secondaryInitialSize: PropTypes.number,
-  secondaryMinSize: PropTypes.number,
-  onSecondarySizeChange: PropTypes.func,
-  children: PropTypes.arrayOf(PropTypes.node)
-};
-
-SplitterLayout.defaultProps = {
-  customClassName: '',
-  vertical: false,
-  percentage: false,
-  primaryIndex: 0,
-  primaryMinSize: 0,
-  secondaryInitialSize: undefined,
-  secondaryMinSize: 0,
-  onSecondarySizeChange: undefined,
-  children: []
-};
 
 export default SplitterLayout;

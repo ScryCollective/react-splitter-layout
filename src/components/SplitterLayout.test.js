@@ -4,8 +4,8 @@ import expect from 'expect';
 import React from 'react';
 import Shallow from 'react-test-renderer/shallow'
 import TestUtils from 'react-dom/test-utils';
-import SplitterLayout from '../src/components/SplitterLayout';
-import Pane from '../src/components/Pane';
+import SplitterLayout from './SplitterLayout';
+import Pane from './Pane';
 
 jsdomify.create();
 

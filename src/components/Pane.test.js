@@ -2,7 +2,7 @@
 import expect from 'expect';
 import React from 'react';
 import Shallow from 'react-test-renderer/shallow'
-import Pane from '../src/components/Pane';
+import Pane from './Pane';
 
 function setupPane(content, props) {
   props = props || {};
